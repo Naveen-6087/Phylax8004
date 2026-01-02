@@ -1,0 +1,35 @@
+{
+  "name": "Private Medical AI",
+  "description": "Privacy-preserving medical AI assistant powered by Nillion",
+  "url": "http://localhost:3001",
+  "version": "1.0.0",
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": false,
+    "stateTransitionHistory": true
+  },
+  "authentication": {
+    "schemes": ["x402"]
+  },
+  "defaultInputModes": ["text"],
+  "defaultOutputModes": ["text"],
+  "skills": [
+    {
+      "id": "medical-chat",
+      "name": "Medical Chat",
+      "description": "Answer medical questions with privacy protection using Nillion nilAI",
+      "tags": ["medical", "health", "privacy", "ai", "nillion"],
+      "examples": [
+        "What are the symptoms of the common cold?",
+        "How can I improve my sleep quality?",
+        "What should I do for a mild headache?",
+        "Tips for managing stress and anxiety"
+      ]
+    }
+  ],
+  "privacy": {
+    "dataStorage": "Encrypted with nilDB",
+    "inference": "Processed in TEE with nilAI",
+    "payment": "Pay-per-query with x402"
+  }
+}
