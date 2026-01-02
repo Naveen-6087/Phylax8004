@@ -1,42 +1,32 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { Header } from '@/components/header';
-import { PrivacyBadge } from '@/components/privacy-badge';
-import { ChatInterface } from '@/components/chat-interface';
+import { AgentCard } from '@/components/agent-card';
 
 export default function Home() {
-  const [sessionId, setSessionId] = useState<string>('');
-
-  useEffect(() => {
-    setSessionId(uuidv4());
-  }, []);
-
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col bg-black selection:bg-white/20">
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-black to-black pointer-events-none" />
+
       <Header />
-      
-      <div className="flex-1 flex flex-col items-center px-4 py-8">
-        <div className="w-full max-w-3xl space-y-6">
-          <PrivacyBadge />
-          <ChatInterface sessionId={sessionId} />
-        </div>
+
+      <div className="relative flex-1 flex flex-col items-center justify-center p-4 md:p-8">
+        <AgentCard />
       </div>
-      
-      <footer className="py-4 text-center text-sm text-muted-foreground border-t">
+
+      <footer className="relative py-6 text-center text-sm text-gray-600 border-t border-white/5 bg-black">
         <p>
           Powered by{' '}
           <a
             href="https://nillion.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary hover:underline"
+            className="text-gray-400 hover:text-white transition-colors"
           >
             Nillion
           </a>
           {' • '}
-          <span className="text-muted-foreground/70">nilAI + nilDB + x402</span>
+          <span className="text-gray-700">nilAI + nilDB + x402</span>
         </p>
       </footer>
     </main>
